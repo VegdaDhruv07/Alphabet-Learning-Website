@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A to Z Alphabet Learning</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🔤 A to Z Alphabet Learning</h1>
+
+        <p class="subtitle">
+            🌟 Learn English Alphabets with Fun! 🌟
+        </p>
+
+        <!-- Letter Input -->
+        <div class="input-section">
+
+            <label for="letter">Enter Letter</label>
+
+            <div class="input-row">
+
+                <input
+                    type="text"
+                    id="letter"
+                    maxlength="1"
+                    placeholder="A"
+                >
+
+                <button onclick="showLetter()">
+                    Show 🚀
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Main Result -->
+        <div class="result">
+
+            <div id="letterDisplay">
+                🔤
+            </div>
+
+            <h2 id="wordTitle">
+                Enter a letter
+            </h2>
+
+            <button class="play-btn" onclick="speakWord()">
+                🔊 Play
+            </button>
+
+        </div>
+
+
+        <!-- 10 Words -->
+        <div class="words-box">
+
+            <h2>📚 10 Words</h2>
+
+            <div id="wordList">
+                Enter a letter to see 10 words.
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+            💡 Learn one letter every day and become an English Star! ⭐
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const alphabetData = {
+
+            A: {
+                main: "Apple",
+                emoji: "🍎",
+                words: [
+                    "Apple",
+                    "Ant",
+                    "Airplane",
+                    "Alligator",
+                    "Angel",
+                    "Astronaut",
+                    "Arrow",
+                    "Avocado",
+                    "Apricot",
+                    "Ambulance"
+                ]
+            },
+
+            B: {
+                main: "Ball",
+                emoji: "⚽",
+                words: [
+                    "Ball",
+                    "Banana",
+                    "Bear",
+                    "Bird",
+                    "Book",
+                    "Bus",
+                    "Butterfly",
+                    "Bottle",
+                    "Boat",
+                    "Bee"
+                ]
+            },
+
+            C: {
+                main: "Cat",
+                emoji: "🐱",
+                words: [
+                    "Cat",
+                    "Car",
+                    "Cake",
+                    "Cow",
+                    "Cup",
+                    "Candy",
+                    "Camel",
+                    "Clock",
+                    "Crab",
+                    "Candle"
+                ]
+            },
+
+            D: {
+                main: "Dog",
+                emoji: "🐶",
+                words: [
+                    "Dog",
+                    "Duck",
+                    "Dolphin",
+                    "Door",
+                    "Drum",
+                    "Dress",
+                    "Dragon",
+                    "Donut",
+                    "Deer",
+                    "Desk"
+                ]
+            },
+
+            E: {
+                main: "Elephant",
+                emoji: "🐘",
+                words: [
+                    "Elephant",
+                    "Eagle",
+                    "Egg",
+                    "Earth",
+                    "Ear",
+                    "Engine",
+                    "Envelope",
+                    "Eraser",
+                    "Eye",
+                    "Elk"
+                ]
+            },
+
+            F: {
+                main: "Fish",
+                emoji: "🐟",
+                words: [
+                    "Fish",
+                    "Frog",
+                    "Flower",
+                    "Fox",
+                    "Fan",
+                    "Fire",
+                    "Flag",
+                    "Fruit",
+                    "Fork",
+                    "Feather"
+                ]
+            },
+
+            G: {
+                main: "Grapes",
+                emoji: "🍇",
+                words: [
+                    "Grapes",
+                    "Goat",
+                    "Giraffe",
+                    "Girl",
+                    "Glass",
+                    "Gift",
+                    "Guitar",
+                    "Garden",
+                    "Ghost",
+                    "Globe"
+                ]
+            },
+
+            H: {
+                main: "Horse",
+                emoji: "🐴",
+                words: [
+                    "Horse",
+                    "Hat",
+                    "House",
+                    "Hen",
+                    "Hand",
+                    "Heart",
+                    "Honey",
+                    "Hammer",
+                    "Helicopter",
+                    "Hippo"
+                ]
+            },
+
+            I: {
+                main: "Ice Cream",
+                emoji: "🍦",
+                words: [
+                    "Ice Cream",
+                    "Igloo",
+                    "Insect",
+                    "Island",
+                    "Iron",
+                    "Ink",
+                    "Iguana",
+                    "Internet",
+                    "Invitation",
+                    "Instrument"
+                ]
+            },
+
+            J: {
+                main: "Juice",
+                emoji: "🧃",
+                words: [
+                    "Juice",
+                    "Jelly",
+                    "Jacket",
+                    "Jaguar",
+                    "Jeep",
+                    "Joker",
+                    "Jungle",
+                    "Jam",
+                    "Jar",
+                    "Jump"
+                ]
+            },
+
+            K: {
+                main: "Kite",
+                emoji: "🪁",
+                words: [
+                    "Kite",
+                    "Kangaroo",
+                    "Key",
+                    "King",
+                    "Kid",
+                    "Kitchen",
+                    "Kiwi",
+                    "Koala",
+                    "Keyboard",
+                    "Kettle"
+                ]
+            },
+
+            L: {
+                main: "Lion",
+                emoji: "🦁",
+                words: [
+                    "Lion",
+                    "Leaf",
+                    "Lemon",
+                    "Lamp",
+                    "Laptop",
+                    "Ladder",
+                    "Ladybug",
+                    "Lock",
+                    "Lollipop",
+                    "Lizard"
+                ]
+            },
+
+            M: {
+                main: "Mango",
+                emoji: "🥭",
+                words: [
+                    "Mango",
+                    "Monkey",
+                    "Moon",
+                    "Mouse",
+                    "Milk",
+                    "Mountain",
+                    "Motorcycle",
+                    "Mirror",
+                    "Melon",
+                    "Mug"
+                ]
+            },
+
+            N: {
+                main: "Nest",
+                emoji: "🪺",
+                words: [
+                    "Nest",
+                    "Nose",
+                    "Nurse",
+                    "Nail",
+                    "Notebook",
+                    "Necklace",
+                    "Newspaper",
+                    "Noodle",
+                    "Night",
+                    "Nut"
+                ]
+            },
+
+            O: {
+                main: "Orange",
+                emoji: "🍊",
+                words: [
+                    "Orange",
+                    "Owl",
+                    "Octopus",
+                    "Ostrich",
+                    "Ocean",
+                    "Onion",
+                    "Oven",
+                    "Orange",
+                    "Oil",
+                    "Orchid"
+                ]
+            },
+
+            P: {
+                main: "Parrot",
+                emoji: "🦜",
+                words: [
+                    "Parrot",
+                    "Panda",
+                    "Pen",
+                    "Pencil",
+                    "Pizza",
+                    "Potato",
+                    "Pumpkin",
+                    "Penguin",
+                    "Piano",
+                    "Pear"
+                ]
+            },
+
+            Q: {
+                main: "Queen",
+                emoji: "👑",
+                words: [
+                    "Queen",
+                    "Question",
+                    "Quilt",
+                    "Quarter",
+                    "Quail",
+                    "Quartz",
+                    "Quilt",
+                    "Queue",
+                    "Quiz",
+                    "Quiet"
+                ]
+            },
+
+            R: {
+                main: "Rabbit",
+                emoji: "🐰",
+                words: [
+                    "Rabbit",
+                    "Rose",
+                    "Rainbow",
+                    "Rocket",
+                    "Robot",
+                    "River",
+                    "Ring",
+                    "Road",
+                    "Ruler",
+                    "Rainbow"
+                ]
+            },
+
+            S: {
+                main: "Sun",
+                emoji: "☀️",
+                words: [
+                    "Sun",
+                    "Star",
+                    "Snake",
+                    "School",
+                    "Sheep",
+                    "Ship",
+                    "Spoon",
+                    "Strawberry",
+                    "Spider",
+                    "Shoe"
+                ]
+            },
+
+            T: {
+                main: "Tiger",
+                emoji: "🐯",
+                words: [
+                    "Tiger",
+                    "Table",
+                    "Tree",
+                    "Train",
+                    "Tomato",
+                    "Turtle",
+                    "Telephone",
+                    "Truck",
+                    "Tooth",
+                    "Toy"
+                ]
+            },
+
+            U: {
+                main: "Umbrella",
+                emoji: "☂️",
+                words: [
+                    "Umbrella",
+                    "Unicorn",
+                    "Uniform",
+                    "Up",
+                    "Urn",
+                    "UFO",
+                    "Uncle",
+                    "Under",
+                    "Utensil",
+                    "Universe"
+                ]
+            },
+
+            V: {
+                main: "Van",
+                emoji: "🚐",
+                words: [
+                    "Van",
+                    "Violin",
+                    "Vegetable",
+                    "Volcano",
+                    "Vase",
+                    "Village",
+                    "Vulture",
+                    "Video",
+                    "Vehicle",
+                    "Vest"
+                ]
+            },
+
+            W: {
+                main: "Whale",
+                emoji: "🐋",
+                words: [
+                    "Whale",
+                    "Water",
+                    "Watch",
+                    "Window",
+                    "Wolf",
+                    "Wheel",
+                    "Worm",
+                    "Wallet",
+                    "Watermelon",
+                    "Wizard"
+                ]
+            },
+
+            X: {
+                main: "Xylophone",
+                emoji: "🎵",
+                words: [
+                    "Xylophone",
+                    "X-ray",
+                    "Xenon",
+                    "Xerus",
+                    "Xylem",
+                    "Xenops",
+                    "Xerophyte",
+                    "Xylograph",
+                    "Xylitol",
+                    "Xenolith"
+                ]
+            },
+
+            Y: {
+                main: "Yo-yo",
+                emoji: "🪀",
+                words: [
+                    "Yo-yo",
+                    "Yak",
+                    "Yellow",
+                    "Yacht",
+                    "Yogurt",
+                    "Yarn",
+                    "Year",
+                    "Yawn",
+                    "Yam",
+                    "Young"
+                ]
+            },
+
+            Z: {
+                main: "Zebra",
+                emoji: "🦓",
+                words: [
+                    "Zebra",
+                    "Zoo",
+                    "Zero",
+                    "Zipper",
+                    "Zucchini",
+                    "Zone",
+                    "Zombie",
+                    "Zigzag",
+                    "Zeppelin",
+                    "Zinnia"
+                ]
+            }
+
+        };
+
+
+        function showLetter() {
+
+            let letter = document
+                .getElementById("letter")
+                .value
+                .toUpperCase();
+
+            if (letter === "") {
+                alert("Please enter a letter!");
+                return;
+            }
+
+            if (!alphabetData[letter]) {
+                alert("Please enter a letter from A to Z!");
+                return;
+            }
+
+            let data = alphabetData[letter];
+
+            document.getElementById("letterDisplay").textContent =
+                letter + " " + data.emoji;
+
+            document.getElementById("wordTitle").textContent =
+                letter + " for " + data.main;
+
+
+            let output = "";
+
+            data.words.forEach(function(word, index) {
+
+                output += `
+                    <div class="word-item">
+                        <span>${index + 1}. ${letter} for ${word}</span>
+
+                        <button
+                            class="small-play"
+                            onclick="speak('${letter} for ${word}')">
+                            🔊
+                        </button>
+                    </div>
+                `;
+
+            });
+
+            document.getElementById("wordList").innerHTML = output;
+
+        }
+
+
+        function speakWord() {
+
+            let title =
+                document.getElementById("wordTitle").textContent;
+
+            speak(title);
+
+        }
+
+
+        function speak(text) {
+
+            window.speechSynthesis.cancel();
+
+            let speech = new SpeechSynthesisUtterance(text);
+
+            speech.lang = "en-US";
+            speech.rate = 0.8;
+            speech.pitch = 1;
+
+            window.speechSynthesis.speak(speech);
+
+        }
+
+
+        // Press Enter to show letter
+        document.getElementById("letter").addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+                    showLetter();
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

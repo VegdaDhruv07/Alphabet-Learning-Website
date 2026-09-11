@@ -1,0 +1,349 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(135deg, #74ebd5, #9face6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+/* Main Container */
+
+.container {
+    width: 100%;
+    max-width: 750px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Heading */
+
+h1 {
+    font-size: 38px;
+    color: #6c5ce7;
+
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #666;
+
+    margin-bottom: 30px;
+}
+
+
+/* Input Section */
+
+.input-section label {
+    display: block;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: #444;
+
+    margin-bottom: 10px;
+}
+
+
+.input-row {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.input-box {
+    width: 180px;
+
+    padding: 14px;
+
+    border: 3px solid #74b9ff;
+
+    border-radius: 15px;
+
+    font-size: 25px;
+
+    text-align: center;
+
+    outline: none;
+
+    text-transform: uppercase;
+}
+
+
+.input-box:focus {
+    border-color: #0984e3;
+
+    box-shadow:
+        0 0 12px rgba(9, 132, 227, 0.3);
+}
+
+
+/* Main Button */
+
+.input-row button {
+    width: 110px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: linear-gradient(
+        135deg,
+        #ff7675,
+        #fd79a8
+    );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.input-row button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Result */
+
+.result {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background: #f8f9ff;
+
+    border-radius: 25px;
+
+    border: 2px solid #e8e8ff;
+}
+
+
+/* Big Letter */
+
+#letterDisplay {
+    font-size: 75px;
+
+    font-weight: bold;
+
+    color: #ff7675;
+
+    margin-bottom: 10px;
+}
+
+
+#wordTitle {
+    font-size: 32px;
+
+    color: #6c5ce7;
+
+    margin-bottom: 18px;
+}
+
+
+/* Play Button */
+
+.play-btn {
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 30px;
+
+    background: #00b894;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 15px rgba(0, 184, 148, 0.3);
+
+    transition: 0.2s;
+}
+
+
+.play-btn:hover {
+    transform: scale(1.05);
+
+    background: #00a383;
+}
+
+
+/* 10 Words */
+
+.words-box {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #fff;
+
+    border-radius: 20px;
+
+    border: 2px solid #eee;
+}
+
+
+.words-box h2 {
+    color: #e17055;
+
+    margin-bottom: 15px;
+}
+
+
+/* Word Items */
+
+.word-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #f7f7ff;
+
+    padding: 12px 15px;
+
+    margin: 8px 0;
+
+    border-radius: 12px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #2d3436;
+}
+
+
+.small-play {
+    border: none;
+
+    background: #74b9ff;
+
+    color: white;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.2s;
+}
+
+
+.small-play:hover {
+    transform: scale(1.1);
+
+    background: #0984e3;
+}
+
+
+/* Tip */
+
+.tip {
+    margin-top: 20px;
+
+    padding: 14px;
+
+    background: #fff3cd;
+
+    border-radius: 15px;
+
+    color: #856404;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .input-row {
+        gap: 7px;
+    }
+
+    .input-box {
+        width: 140px;
+        font-size: 22px;
+    }
+
+    .input-row button {
+        width: 95px;
+        font-size: 16px;
+    }
+
+    #letterDisplay {
+        font-size: 60px;
+    }
+
+    #wordTitle {
+        font-size: 25px;
+    }
+
+    .word-item {
+        font-size: 16px;
+    }
+
+}
